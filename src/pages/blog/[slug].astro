@@ -1,0 +1,129 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": "SEO Juice",
+    "url": "https://seojuice.ca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SEO Juice",
+    "url": "https://seojuice.ca"
+  }
+};
+---
+
+<Layout
+  title={`${post.data.title} | SEO Juice Blog`}
+  description={post.data.description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <main class="min-h-screen bg-white">
+    <!-- Hero -->
+    <section class="w-full pt-32 pb-16 bg-offWhite border-b border-borderLight">
+      <div class="max-w-[780px] mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <a href="/blog" class="text-sm text-mutedText hover:text-primary transition-colors">Blog</a>
+          <span class="text-mutedText text-sm">/</span>
+          <span class="text-sm text-primary font-medium">{post.data.category}</span>
+        </div>
+        <h1 class="font-display font-bold text-[32px] sm:text-[44px] lg:text-[52px] text-[#1A1A1A] leading-[1.1] tracking-[-0.03em]">
+          {post.data.title}
+        </h1>
+        <p class="mt-5 text-lg text-body leading-relaxed max-w-[640px]">
+          {post.data.description}
+        </p>
+        <div class="mt-7 flex flex-wrap items-center gap-5 text-sm text-mutedText">
+          <span>By <strong class="text-[#1A1A1A]">{post.data.author}</strong></span>
+          <span>{formatDate(post.data.pubDate)}</span>
+          {post.data.readingTime && <span>{post.data.readingTime} min read</span>}
+        </div>
+        {post.data.tags.length > 0 && (
+          <div class="mt-5 flex flex-wrap gap-2">
+            {post.data.tags.map((tag) => (
+              <span class="text-xs font-medium bg-primary-light text-primary px-3 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    {post.data.image && (
+      <div class="max-w-[780px] mx-auto px-6 -mt-px">
+        <img
+          src={post.data.image}
+          alt={post.data.title}
+          class="w-full rounded-b-2xl object-cover max-h-[400px]"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <!-- Article body -->
+    <section class="w-full py-16">
+      <div class="max-w-[780px] mx-auto px-6">
+        <article class="prose prose-lg prose-headings:font-display prose-headings:font-bold prose-headings:text-[#1A1A1A] prose-headings:tracking-tight prose-p:text-body prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-[#1A1A1A] prose-li:text-body max-w-none">
+          <Content />
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA footer -->
+    <section class="w-full bg-primary-light py-20 mt-8">
+      <div class="max-w-[640px] mx-auto px-6 text-center">
+        <h2 class="font-display font-bold text-[26px] sm:text-[34px] text-[#1A1A1A] leading-[1.15] tracking-[-0.02em]">
+          Ready to apply this to your Halifax business?
+        </h2>
+        <p class="mt-4 text-body leading-relaxed">
+          Get a free audit and see exactly what it will take to rank on page one in your market.
+        </p>
+        <a
+          href="/free-seo-audit"
+          class="inline-flex items-center gap-2 mt-7 bg-primary hover:bg-primary-hover text-white font-semibold text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-button"
+        >
+          Get my free SEO audit
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <p class="mt-3 text-sm text-mutedText">Free, no obligation, delivered in 3 business days.</p>
+      </div>
+    </section>
+
+    <!-- More posts -->
+    <section class="w-full bg-white py-16 border-t border-borderLight">
+      <div class="max-w-[780px] mx-auto px-6 flex items-center justify-between">
+        <a href="/blog" class="text-sm font-semibold text-primary hover:text-primary-hover transition-colors flex items-center gap-1.5">
+          <svg class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+          All blog posts
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

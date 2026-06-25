@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComparePage from '../../components/ComparePage.astro';
+
+const data = {
+  seoTitle: 'SEO Juice vs Other Halifax SEO Agencies | Honest Comparison 2025',
+  seoDescription:
+    'Not all Halifax SEO agencies are equal. See how SEO Juice compares to other local agencies on transparency, reporting, results, and pricing, before you sign anything.',
+  badge: 'SEO Juice vs Other Halifax SEO Agencies',
+  headline: 'How SEO Juice Compares to Other Halifax SEO Agencies',
+  sub: "Halifax has no shortage of agencies claiming page-one results. Here's what actually separates them, and what to demand before handing over your marketing budget.",
+  verdictHeadline: "Most Halifax 'SEO agencies' are generalist marketing shops with SEO as a line item. SEO Juice is SEO-only.",
+  verdictBody:
+    "Many Halifax digital agencies offer SEO alongside web design, social media, paid ads, and branding. That breadth is a quality signal for those services, but a red flag for SEO. SEO is a full-time, compounding discipline. SEO Juice does nothing else. Every team member, every process, every tool investment is 100% focused on organic search. The difference shows up in your rankings.",
+  usLabel: 'SEO Juice',
+  themLabel: 'Typical Halifax Agency',
+  tableRows: [
+    { feature: 'SEO-only focus', us: 'yes', them: 'no' },
+    { feature: 'Dedicated Halifax market knowledge', us: 'yes', them: 'Varies' },
+    { feature: 'Transparent monthly reporting', us: 'yes', them: 'Often quarterly or on request' },
+    { feature: 'Rank tracking included', us: 'yes', them: 'Sometimes extra' },
+    { feature: 'Technical SEO audits', us: 'yes', them: 'Usually one-time at start' },
+    { feature: 'Link building (real, manual outreach)', us: 'yes', them: 'Rare or outsourced' },
+    { feature: 'Local SEO & Google Business Profile', us: 'yes', them: 'Basic setup only' },
+    { feature: 'Named strategist on your account', us: 'yes', them: 'Account manager only' },
+    { feature: 'No long-term lock-in after 6 months', us: 'yes', them: 'Often 12-month contracts' },
+    { feature: 'Published pricing', us: 'yes', them: 'no' },
+    { feature: '4.9/5 Google Review average', us: 'yes', them: 'Varies' },
+  ],
+  sections: [
+    {
+      heading: "The Generalist Agency Problem in Halifax's SEO Market",
+      paragraphs: [
+        'Halifax has a healthy digital agency ecosystem. Many of those agencies are excellent at brand, web, and paid media. SEO, however, is often treated as an add-on: a recurring retainer that uses templated deliverables, auto-generated reports, and junior staff who rotate between accounts.',
+        "The hallmarks of a generalist agency's SEO retainer: a monthly PDF showing impressions and clicks with no clear narrative; keyword targets that were set at month one and never revisited; link building that amounts to directory submissions; and a strategist who is also running your paid ads, your email list, and three other clients' social accounts.",
+        "SEO Juice was built specifically because Halifax businesses deserved better. We do not run paid ads. We do not build websites. We rank businesses on Google. That is the only thing we do.",
+      ],
+      callout: { stat: '94%', label: 'of SEO Juice clients see ranking improvements within 90 days' },
+    },
+    {
+      heading: 'What to Ask Any Halifax SEO Agency Before Signing',
+      paragraphs: [
+        'The fastest way to separate serious SEO agencies from generalist shops is a five-question qualifier. A credible agency can answer every one immediately; a weak agency will stall, deflect, or give vague answers.',
+      ],
+      bullets: [
+        'Show me three Halifax-specific clients and the keyword movements you drove for them',
+        'Who specifically will work on my account, and what is their SEO background?',
+        'What does your link building process look like? Is it manual outreach or automated tools?',
+        'How often do you revisit the keyword strategy, and who initiates that conversation?',
+        'What happens to my campaign data and rankings if I cancel?',
+      ],
+    },
+    {
+      heading: 'Why Local SEO Knowledge in Halifax Is Non-Negotiable',
+      paragraphs: [
+        "Halifax is not Toronto or Vancouver. Search volumes are lower, competition is more concentrated, and local intent signals (proximity to downtown, Dartmouth vs. Halifax, North End vs. South End) matter enormously for local businesses. An agency that has never worked in this market will spend your first three months learning it.",
+        'SEO Juice has ranked Halifax businesses in law, trades, healthcare, hospitality, retail, and professional services. We know the Halifax Map Pack, the community directories that build local authority, and the seasonal demand patterns that affect search volume across industries in Nova Scotia.',
+        'We also know the competitive gaps. Many Halifax industries have thin organic competition, meaning a well-executed 6-month SEO campaign can deliver page-one rankings that would take 18+ months in larger Canadian markets.',
+      ],
+    },
+  ],
+  bestForUsLabel: 'SEO Juice',
+  bestForThemLabel: 'Another Halifax Agency',
+  bestForUs: [
+    'Halifax businesses that want SEO-only focus with no diluted generalist attention',
+    'Companies that demand transparent, actionable monthly reporting, not PDF vanity metrics',
+    'Business owners who have already paid a generalist agency and seen no results',
+    'Brands that need local Halifax SEO expertise, not cookie-cutter national templates',
+    'Growing SMBs that need published pricing and no hidden fees',
+  ],
+  bestForThem: [
+    'Businesses that genuinely need a full-suite agency (brand, web, paid, social, SEO) under one roof',
+    'Companies with an existing long-term relationship with a local agency and only minor SEO needs',
+  ],
+  faqItems: [
+    {
+      question: 'How do I know if my current Halifax SEO agency is actually doing work?',
+      answer:
+        'Ask for a raw keyword ranking report (not a dashboard screenshot) showing your target keywords, their current positions, and month-over-month changes. Ask for a backlink report showing new links built in the last 60 days, with the linking domains and anchor text. If either request is met with hesitation, delays, or a repackaged Google Analytics overview, that is a red flag.',
+    },
+    {
+      question: 'What makes SEO Juice different from other Halifax agencies?',
+      answer:
+        'Three things: (1) We are SEO-only: no web design, no ads, no social. Every resource is allocated to organic search. (2) Every client gets a named Halifax SEO strategist, not a rotating account manager. (3) Our reporting is raw and honest: we show ranking data, traffic attribution, and lead estimates in plain language, monthly.',
+    },
+    {
+      question: 'How long should I give an SEO agency before expecting results?',
+      answer:
+        'SEO is a compounding channel. Expect early signals (impressions, crawl improvements) within 30–60 days, first ranking lifts within 60–90 days, and meaningful organic traffic growth by month 4–6. If you are at month 6 with no ranking movement and no clear explanation, that is the time to ask hard questions or switch providers.',
+    },
+    {
+      question: 'Are Halifax SEO agencies more expensive than national agencies?',
+      answer:
+        "Halifax-based agencies are often competitively priced versus national firms, but pricing varies widely. Beware of low-cost retainers ($200–$400/mo) that promise 'full SEO'. At that price point, you are paying for a report, not active work. SEO Juice's Growth Plan starts at $799/mo with defined deliverables.",
+    },
+    {
+      question: 'Can I switch agencies without losing my SEO progress?',
+      answer:
+        'Yes. All technical SEO improvements (on-page, structured data, site speed) remain on your site. Rankings built on quality content and legitimate backlinks persist. The only risk is a gap in activity. Google rewards consistent signals. SEO Juice offers a free transition audit to assess what your previous agency built and where the gaps are.',
+    },
+  ],
+  ctaHeadline: 'See what a focused Halifax SEO agency can do in 90 days.',
+  ctaSub: "Free audit, no obligation. We'll show you exactly where your site stands and what it will take to rank.",
+};
+---
+
+<Layout
+  title={data.seoTitle}
+  description={data.seoDescription}
+>
+  <main>
+    <ComparePage data={data} />
+  </main>
+</Layout>

@@ -1,0 +1,153 @@
+---
+const { data } = Astro.props;
+---
+
+<section class="relative w-full pt-28 pb-24 overflow-hidden bg-[#022A1C]">
+  <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div class="relative z-10 max-w-[860px] mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-7 opacity-0" data-animate="fade-up">
+      <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+      <span class="text-sm text-white/85 font-medium">{data.badge}</span>
+    </div>
+
+    <h1 class="font-display font-bold text-white text-[36px] sm:text-[52px] lg:text-[64px] leading-[1.05] tracking-[-0.03em] opacity-0" data-animate="fade-up" style="text-shadow: 0 2px 30px rgba(0,0,0,0.4);">
+      {data.headline}
+    </h1>
+
+    <p class="mt-6 text-lg sm:text-xl text-white/75 leading-relaxed max-w-[640px] mx-auto opacity-0" data-animate="fade-up">
+      {data.sub}
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0" data-animate="fade-up">
+      <a href="/free-seo-audit" class="bg-primary hover:bg-primary-hover text-white font-semibold text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_24px_rgba(21,122,78,0.5)]">
+        Get your free SEO audit
+      </a>
+      <a href="#comparison-table" class="text-white/60 hover:text-white/90 text-sm font-medium transition-colors flex items-center gap-1.5">
+        See the comparison
+        <span class="text-white">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-white py-16 lg:py-20">
+  <div class="max-w-[800px] mx-auto px-6">
+    <div class="rounded-2xl border-l-4 border-primary bg-primary-light px-8 py-7">
+      <span class="text-xs font-semibold text-primary tracking-wider uppercase">The verdict</span>
+      <h2 class="mt-2 font-display font-bold text-[22px] sm:text-[26px] text-[#1A1A1A] leading-[1.3] tracking-[-0.01em]">{data.verdictHeadline}</h2>
+      <p class="mt-3 text-base text-body leading-relaxed">{data.verdictBody}</p>
+    </div>
+  </div>
+</section>
+
+<section id="comparison-table" class="w-full py-20 lg:py-24 bg-[#F0F7F3]">
+  <div class="max-w-[900px] mx-auto px-6">
+    <p class="text-center text-sm font-semibold text-primary tracking-wider uppercase mb-10">Side-by-side comparison</p>
+    <div class="rounded-2xl overflow-hidden shadow-card border border-borderLight">
+      <div class="grid grid-cols-[2fr_1fr_1fr]">
+        <div class="bg-[#1A1A1A] px-5 py-4"><span class="text-sm font-semibold text-white/70">Feature</span></div>
+        <div class="bg-primary px-4 py-4 text-center"><span class="text-sm font-semibold text-white">{data.usLabel}</span></div>
+        <div class="bg-[#1A1A1A] px-4 py-4 text-center"><span class="text-sm font-semibold text-white/70">{data.themLabel}</span></div>
+      </div>
+      {data.tableRows.map((row, i) => (
+        <div class={`grid grid-cols-[2fr_1fr_1fr] ${i % 2 === 0 ? 'bg-white' : 'bg-bgGray'}`}>
+          <div class="px-5 py-4 flex items-center"><span class="text-sm font-medium text-[#1A1A1A]">{row.feature}</span></div>
+          <div class="px-4 py-4 flex items-center justify-center" style="background: rgba(232,245,238,0.5);">
+            {row.us === 'yes' ? <span class="text-primary text-xl">✓</span> : row.us === 'no' ? <span class="text-lightGray text-xl">✕</span> : <span class="text-sm leading-snug text-[#1A1A1A]">{row.us}</span>}
+          </div>
+          <div class="px-4 py-4 flex items-center justify-center">
+            {row.them === 'yes' ? <span class="text-primary text-xl">✓</span> : row.them === 'no' ? <span class="text-lightGray text-xl">✕</span> : <span class="text-sm leading-snug text-body">{row.them}</span>}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{data.sections.map((section, index) => (
+  <section class={`w-full py-20 lg:py-24 ${index % 2 !== 0 ? 'bg-[#F0F7F3]' : 'bg-white'}`}>
+    <div class="max-w-[900px] mx-auto px-6">
+      <h2 class="font-display font-bold text-[26px] sm:text-[36px] text-[#1A1A1A] leading-[1.2] tracking-[-0.02em]">{section.heading}</h2>
+      <div class="mt-5 space-y-4">
+        {section.paragraphs.map((paragraph) => (
+          <p class="text-base text-body leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+      {section.bullets ? (
+        <ul class="mt-6 space-y-3">
+          {section.bullets.map((bullet) => (
+            <li class="flex items-start gap-3"><span class="text-primary">✓</span><span class="text-base text-body">{bullet}</span></li>
+          ))}
+        </ul>
+      ) : null}
+      {section.callout ? (
+        <div class="mt-8 inline-flex flex-col items-center rounded-2xl px-8 py-6" style="background: #022A1C;">
+          <span class="font-display font-bold text-[48px] leading-none text-primary">{section.callout.stat}</span>
+          <span class="mt-1.5 text-sm text-white/70 text-center max-w-[200px]">{section.callout.label}</span>
+        </div>
+      ) : null}
+    </div>
+  </section>
+))}
+
+<section class="w-full bg-white py-20 lg:py-24">
+  <div class="max-w-[900px] mx-auto px-6">
+    <p class="text-center text-sm font-semibold text-primary tracking-wider uppercase mb-10">Who each option is right for</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="border-2 border-primary rounded-2xl p-7">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="text-primary text-lg">⚡</span>
+          <h3 class="font-display font-bold text-lg text-[#1A1A1A]">Choose {data.usLabel} if…</h3>
+        </div>
+        <ul class="space-y-3">
+          {data.bestForUs.map((item) => (
+            <li class="flex items-start gap-3"><span class="text-primary">✓</span><span class="text-sm text-body">{item}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div class="border border-borderLight rounded-2xl p-7 bg-bgGray">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="w-5 h-5 rounded-full border-2 border-lightGray flex-shrink-0"></span>
+          <h3 class="font-display font-bold text-lg text-[#1A1A1A]">{data.themLabel} might suit you if…</h3>
+        </div>
+        <ul class="space-y-3">
+          {data.bestForThem.map((item) => (
+            <li class="flex items-start gap-3"><span class="text-body">•</span><span class="text-sm text-body">{item}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-full py-20 lg:py-24 bg-[#F0F7F3]">
+  <div class="max-w-[720px] mx-auto px-6">
+    <h2 class="font-display font-bold text-[28px] sm:text-[36px] text-[#1A1A1A] tracking-[-0.02em] text-center mb-12">Common questions</h2>
+    <div class="bg-white rounded-2xl shadow-card overflow-hidden">
+      {data.faqItems.map((item, index) => (
+        <div class={`${index < data.faqItems.length - 1 ? 'border-b border-borderLight' : ''}`}>
+          <button type="button" data-accordion-trigger class="w-full flex items-center justify-between px-7 py-5 text-left group">
+            <span class="text-base font-medium text-[#1A1A1A] pr-4 group-hover:text-primary transition-colors">{item.question}</span>
+            <span class="text-body">⌄</span>
+          </button>
+          <div class="overflow-hidden transition-all duration-300 max-h-0">
+            <p class="px-7 text-sm text-body leading-relaxed">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="w-full py-20" style="background: #022A1C;">
+  <div class="max-w-[680px] mx-auto px-6 text-center">
+    <div class="flex justify-center gap-1 mb-5">★★★★★</div>
+    <h2 class="font-display font-bold text-[26px] sm:text-[36px] text-white leading-[1.15] tracking-[-0.02em]">{data.ctaHeadline}</h2>
+    <p class="mt-4 text-base max-w-[440px] mx-auto leading-relaxed text-white/75">{data.ctaSub}</p>
+    <a href="/free-seo-audit" class="inline-flex items-center gap-2 mt-8 bg-primary hover:bg-primary-hover text-white font-semibold text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_24px_rgba(21,122,78,0.5)]">
+      Get my free Halifax SEO audit
+      <span class="text-white text-lg">→</span>
+    </a>
+    <p class="mt-4 text-xs text-white/40">Free, no obligation, delivered in 3 business days.</p>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+---
+
+<section id="pricing" class="w-full py-24 lg:py-32" style="background: linear-gradient(180deg, #E8F5EE 0%, #F0F7F3 50%, #FFFFFF 100%);">
+  <div class="max-w-[600px] mx-auto px-6">
+    <div class="text-center">
+      <h2 class="font-display font-bold text-[40px] sm:text-[56px] text-[#1A1A1A] leading-[1.1] tracking-[-0.02em]">Start with a free SEO audit.</h2>
+      <p class="mt-4 text-lg text-body">SEO is the best long-term investment for Halifax businesses. Save more with quarterly or annual plans.</p>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <div class="inline-flex bg-bgGray rounded-full p-1" role="tablist" data-billing-toggle>
+        <button data-billing-button="monthly" class="px-5 py-2 rounded-full text-sm font-medium">Monthly</button>
+        <button data-billing-button="quarterly" class="px-5 py-2 rounded-full text-sm font-medium">Quarterly</button>
+        <button data-billing-button="annual" class="px-5 py-2 rounded-full text-sm font-medium">Annual</button>
+      </div>
+    </div>
+
+    <div class="mt-8 bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.08)] p-8 sm:p-12" data-pricing-card>
+      <span class="inline-block text-sm font-semibold text-primary tracking-wider uppercase bg-primary-light px-3 py-1 rounded-full">Growth Plan</span>
+
+      <div class="mt-6">
+        <div class="flex items-baseline gap-1">
+          <span class="font-display font-bold text-5xl text-[#1A1A1A]" data-price-display data-price-monthly="$999" data-price-quarterly="$899" data-price-annual="$799">$899</span>
+          <span class="text-base text-mutedText">/month</span>
+        </div>
+        <p class="mt-1 text-sm text-lightGray" data-price-billing> $2,697 billed every 3 months</p>
+      </div>
+
+      <ul class="mt-8 space-y-4">
+        {
+          [
+            'Free comprehensive SEO audit (valued at $500)',
+            'Your own dedicated Halifax SEO strategist',
+            'Full keyword research targeting Halifax & Nova Scotia searches',
+            'On-page SEO optimization for up to 10 pages/month',
+            'Technical SEO fixes: speed, crawlability, schema markup',
+            'Google Business Profile optimization & local SEO',
+            'Monthly link building & digital PR outreach',
+            'Transparent monthly ranking & traffic report',
+          ].map(item => (
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="#157A4E"><path d="M20.285 6.709l-11.025 11.03-5.545-5.548 1.414-1.414 4.131 4.131 9.611-9.616z"/></svg><span class="text-[15px] text-body">{item}</span></li>
+          ))
+        }
+      </ul>
+
+      <a href="/free-seo-audit" class="block mt-8 w-full bg-forest-dark hover:bg-[#054D33] text-white font-semibold text-base text-center py-4 rounded-xl transition-all">Get your free SEO audit</a>
+    </div>
+  </div>
+</section>

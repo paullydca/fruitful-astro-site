@@ -1,0 +1,110 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComparePage from '../../components/ComparePage.astro';
+
+const data = {
+  seoTitle: 'DIY SEO vs Hiring a Halifax SEO Agency | Is It Worth Doing It Yourself?',
+  seoDescription: "Thinking of doing your own SEO for your Halifax business? Learn what DIY SEO actually takes, where it fails, and when hiring SEO Juice is the smarter call.",
+  badge: 'DIY SEO vs Hiring a Halifax SEO Agency',
+  headline: 'DIY SEO vs. Hiring SEO Juice: The Honest Guide for Halifax Business Owners',
+  sub: "YouTube tutorials, free tools, and a weekend of effort sound like a plan. Here's what DIY SEO actually delivers for Halifax businesses, and where the real bottleneck is.",
+  verdictHeadline: "DIY SEO works for simple sites. For competitive Halifax keywords, you need more than time. You need a system.",
+  verdictBody: "DIY SEO is not impossible. Basic on-page optimisation (titles, meta descriptions, heading structure, Google Business Profile) can be done by any determined business owner. The problem is that these basics are table stakes in 2025. Ranking for 'Halifax [service]' keywords also requires technical site health, a content strategy, and link acquisition that compounds over time. That is where DIY stalls.",
+  usLabel: 'SEO Juice',
+  themLabel: 'DIY SEO',
+  tableRows: [
+    { feature: 'Time required from you', us: '< 1 hr/mo (review call)', them: '10–20+ hrs/mo ongoing' },
+    { feature: 'Technical site audit', us: 'yes', them: 'Partial (free tools only)' },
+    { feature: 'On-page optimisation', us: 'yes', them: 'yes' },
+    { feature: 'Content strategy & publishing', us: 'yes', them: 'Possible but time-intensive' },
+    { feature: 'Link building', us: 'yes', them: 'Very hard without relationships' },
+    { feature: 'Local SEO & Google Business Profile', us: 'yes', them: 'Basic setup possible' },
+    { feature: 'Rank tracking & reporting', us: 'yes', them: 'Free tools are limited' },
+    { feature: 'Competitor gap analysis', us: 'yes', them: 'no' },
+    { feature: 'Consistent monthly execution', us: 'yes', them: 'Inconsistent under business pressure' },
+    { feature: 'Compounding results over 12 months', us: 'yes', them: 'Rare' },
+    { feature: 'Halifax market competitive intel', us: 'yes', them: 'no' },
+  ],
+  sections: [
+    {
+      heading: 'What DIY SEO Can and Cannot Do for a Halifax Business',
+      paragraphs: [
+        "Let's be honest: a motivated Halifax business owner can handle the fundamentals. Updating your Google Business Profile, fixing missing meta titles, writing a blog post once a month, submitting to a few local directories. These are real SEO actions and they move the needle on the very long tail.",
+        "The ceiling of DIY SEO in a competitive Halifax market, however, is low. The businesses outranking you on 'Halifax plumber' or 'Halifax family lawyer' are not winning because their titles are better. They are winning because they have dozens of high-authority backlinks, a technically sound site that loads in under 2 seconds, and a content library that systematically covers every search intent in their vertical.",
+        "Building that kind of infrastructure takes expertise and time, and time is exactly what Halifax business owners do not have. Every hour spent researching anchor text ratios or diagnosing a crawl budget issue is an hour not spent on your actual business.",
+      ],
+      callout: { stat: '20hrs', label: 'avg. weekly hours a DIY SEO campaign demands to stay competitive' },
+    },
+    {
+      heading: 'The DIY SEO Trap: Doing the Easy Things and Skipping What Matters',
+      paragraphs: [
+        "The most common pattern we see from Halifax businesses that tried DIY SEO: they set up Google Search Console, fixed the obvious title tags, wrote three blog posts, got excited about a small traffic bump, and then stalled. Six months later, traffic has flatlined, the blog is dormant, and the competitive keywords they care about are still on page three.",
+        "Why? Because the easy 20% of SEO (on-page basics) is freely documented everywhere. The hard 80% (building topical authority, earning links from credible domains, fixing JavaScript rendering issues, structuring internal links to flow PageRank correctly) requires both expertise and consistent execution month after month.",
+        "SEO Juice exists to handle the hard 80% so Halifax businesses capture the compounding returns that only show up after 6–12 months of disciplined execution.",
+      ],
+      bullets: [
+        'Technical SEO: Core Web Vitals, crawlability, structured data, site architecture',
+        'Link building: manual outreach to Halifax media, industry directories, and local partners',
+        'Content gap analysis: find the keywords your competitors rank for that you do not',
+        'Local pack optimisation: citations, review strategy, GBP posts, Q&A management',
+        'Monthly reporting with actual ranking data, not just impressions',
+      ],
+    },
+    {
+      heading: 'When DIY SEO Is the Right Call (and When It Is Not)',
+      paragraphs: [
+        "DIY SEO is genuinely appropriate in a handful of situations: you have a brand-new site with no existing SEO, you are in a low-competition niche with few local competitors, or you are a solo operator bootstrapping with zero budget and a lot of time. In those cases, mastering the basics yourself is the right first step.",
+        "For established Halifax businesses competing in any industry with two or more serious competitors, however, DIY SEO will cost you more in lost revenue than an agency retainer would. The opportunity cost of ranking on page two versus page one for 'Halifax [your service]' is real. Google's top three organic results capture over 60% of clicks. Page two gets roughly 2%.",
+        "The question to ask yourself: 'What is one new customer from Google worth to my business, and how many am I missing every month by not being on page one?' For most Halifax SMBs, the answer makes the decision obvious.",
+      ],
+    },
+  ],
+  bestForUsLabel: 'SEO Juice',
+  bestForThemLabel: 'DIY SEO',
+  bestForUs: [
+    "Halifax businesses that want page-one rankings without spending 20 hours a week learning SEO",
+    'Established companies competing in any vertical where two or more local businesses are already active online',
+    'Business owners who have tried DIY SEO, hit the basics, and now need the next level',
+    'Anyone who values their time at more than $40/hour and has done the opportunity cost math',
+    'Companies targeting multiple service areas or buyer-intent keywords that require a content strategy',
+  ],
+  bestForThem: [
+    'Completely new businesses with no budget and plenty of time to invest in learning',
+    'Low-competition niches where simply having a Google Business Profile and a clean website is enough',
+    'Business owners who genuinely enjoy digital marketing and treat it as a hobby alongside the business',
+  ],
+  faqItems: [
+    {
+      question: 'Can I do SEO myself using free tools?',
+      answer: "Yes, for the basics. Google Search Console, Google Analytics, and Google's free Keyword Planner give you enough data to optimise your pages, fix crawl errors, and identify some keyword opportunities. The gap opens up when you need competitive backlink analysis, rank tracking at scale, and technical audits. Those require paid tools (Ahrefs, Semrush) that start at $100–$200/mo and take months to learn to use well.",
+    },
+    {
+      question: 'How long does DIY SEO take to show results?',
+      answer: "DIY SEO timelines vary widely. Basic on-page fixes can improve crawlability within days. Meaningful ranking improvements for competitive Halifax keywords typically take 6–12 months of consistent work: content publishing, link building, technical maintenance. The bottleneck is usually consistency: most business owners cannot sustain 10–20 hours per week of SEO work alongside running their business.",
+    },
+    {
+      question: 'Is it worth learning SEO myself before hiring an agency?',
+      answer: "Understanding SEO fundamentals makes you a better client and helps you evaluate agency work. Spending 10–20 hours on Google's SEO Starter Guide and a few courses is a worthwhile investment. But learning enough to execute a competitive Halifax SEO campaign yourself (technical audits, link outreach, content strategy) takes 12–18 months of dedicated study and practice. For most business owners, that time is better spent on the business.",
+    },
+    {
+      question: 'What can I do myself while SEO Juice handles the technical and link work?',
+      answer: "Plenty. Your local knowledge is irreplaceable. You can gather and respond to Google reviews, post GBP updates about new services or promotions, share content on social channels, and ask happy clients for testimonials. These human signals complement technical SEO and speed up results. SEO Juice will give you a simple monthly checklist of DIY tasks that multiply the impact of our work.",
+    },
+    {
+      question: 'What happens if I start DIY and then switch to SEO Juice later?',
+      answer: "Your existing work is not wasted: everything that is technically sound stays. SEO Juice will audit what you have built, keep what is working, fix what is not, and build on the foundation. Many clients come to us after a year of DIY work. They have good on-page basics and a site Google trusts; we add the link authority and content strategy that pushes them from page two to page one.",
+    },
+  ],
+  ctaHeadline: 'Stop ranking on page two. Let us handle the hard part.',
+  ctaSub: 'Free Halifax SEO audit in 3 business days. See exactly what it will take to reach page one.',
+};
+---
+
+<Layout
+  title={data.seoTitle}
+  description={data.seoDescription}
+>
+  <main>
+    <ComparePage data={data} />
+  </main>
+</Layout>

@@ -1,0 +1,101 @@
+---
+const exploreLinks = [
+  { label: 'SEO Services', href: '#how-it-works' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'SEO Roadmap', href: '#seo-roadmap' },
+  { label: 'Results & ROI', href: '#results' },
+];
+
+const compareLinks = [
+  { label: 'vs In-House SEO', href: '#' },
+  { label: 'vs Halifax Agencies', href: '#' },
+  { label: 'vs DIY SEO', href: '#' },
+];
+
+const companyLinks = [
+  { label: 'Blog', href: '#' },
+  { label: 'Case Studies', href: '#' },
+  { label: 'Our Team', href: '#team' },
+  { label: 'Careers', href: '#' },
+  { label: 'Legal', href: '#' },
+];
+
+const socialLinks = [
+  { label: 'Instagram', href: '#' },
+  { label: 'LinkedIn', href: '#' },
+  { label: 'Facebook', href: '#' },
+];
+---
+
+<footer class="w-full bg-forest-dark">
+  <div class="max-w-[1200px] mx-auto px-6 pt-20 pb-10">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div>
+        <h4 class="font-semibold text-sm text-white mb-4">Explore SEO Juice</h4>
+        <ul class="space-y-2.5">
+          {exploreLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-sm text-white mb-4">Compare SEO Juice</h4>
+        <ul class="space-y-2.5">
+          {compareLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-sm text-white mb-4">Company</h4>
+        <ul class="space-y-2.5">
+          {companyLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-sm text-white mb-4">Social</h4>
+        <ul class="space-y-2.5">
+          {socialLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-sm text-white mb-4">Contact</h4>
+        <ul class="space-y-2.5">
+          <li><a href="mailto:hello@seojuice.ca" class="text-sm text-white/70 hover:text-white transition-colors">hello@seojuice.ca</a></li>
+          <li><a href="tel:+19025550100" class="text-sm text-white/70 hover:text-white transition-colors">(902) 555-0100</a></li>
+          <li><span class="text-sm text-white/50">Halifax, Nova Scotia</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-white/10">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
+        <div class="flex-1 max-w-[900px]">
+          <p class="text-[11px] text-white/50 leading-relaxed">SEO Juice is a Halifax-based search engine optimization agency serving businesses across Nova Scotia and Canada. We specialize in local SEO Halifax, technical SEO, content marketing, and link building for businesses that want to rank higher on Google and grow organic traffic.</p>
+          <p class="text-[11px] text-white/50 leading-relaxed mt-3">SEO results vary based on industry, competitiveness, website authority, and market conditions. Rankings and traffic improvements are not guaranteed within any specific timeframe. All client testimonials reflect individual experiences and are not indicative of typical results.</p>
+          <p class="text-[11px] text-white/50 leading-relaxed mt-3">© SEO Juice 2025. All rights reserved. SEO Juice is a registered trade name operating in Halifax, Nova Scotia, Canada. 1505 Barrington Street, Halifax, NS B3J 3K5.</p>
+        </div>
+
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 flex items-center justify-center text-white/20 font-display font-bold">SEO Juice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

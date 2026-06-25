@@ -1,0 +1,169 @@
+---
+import '../styles/global.css';
+import Navbar from '../sections/Navbar.astro';
+import Footer from '../sections/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = '/images/og-default.jpg',
+  noindex = false,
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SEO Juice",
+  "description": "Halifax's dedicated SEO agency. We help Nova Scotia businesses rank higher on Google.",
+  "url": "https://seojuice.ca",
+  "telephone": "+19025550100",
+  "email": "hello@seojuice.ca",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1505 Barrington Street",
+    "addressLocality": "Halifax",
+    "addressRegion": "NS",
+    "postalCode": "B3J 3K5",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.6453,
+    "longitude": -63.5724
+  },
+  "priceRange": "$$$",
+  "areaServed": [
+    { "@type": "City", "name": "Halifax" },
+    { "@type": "City", "name": "Dartmouth" },
+    { "@type": "AdministrativeArea", "name": "Nova Scotia" }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SEO Juice" />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="SEO Juice Blog" href="/rss.xml" />
+  </head>
+  <body class="min-h-screen bg-offWhite">
+    <Navbar />
+    <slot />
+    <Footer />
+    <script>
+      (function(){
+        const nav = document.getElementById('site-nav');
+        if(nav){
+          const onScroll = () => { if(window.scrollY > 100) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
+        }
+
+        // Simple animation on intersection for elements with data-animate
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              e.target.classList.remove('opacity-0');
+              e.target.classList.add('animate-in');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('[data-animate]').forEach(el=>io.observe(el));
+
+        // Accordion toggles
+        document.querySelectorAll('[data-accordion-trigger]').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const content = btn.nextElementSibling;
+            if(!content) return;
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            if(isOpen){ content.style.maxHeight = '0px'; }
+            else { content.style.maxHeight = content.scrollHeight + 'px'; }
+          });
+        });
+
+        // Pricing billing toggle
+        const pricingToggle = document.querySelector('[data-billing-toggle]');
+        if(pricingToggle){
+          pricingToggle.addEventListener('click', (e)=>{
+            const btn = e.target.closest('[data-billing-button]');
+            if(!btn) return;
+            const period = btn.getAttribute('data-billing-button');
+            pricingToggle.querySelectorAll('[data-billing-button]').forEach(b=>b.classList.remove('bg-white','text-[#1A1A1A]'));
+            btn.classList.add('bg-white','text-[#1A1A1A]');
+            const display = document.querySelector('[data-price-display]');
+            if(display){ const val = display.getAttribute('data-price-' + period); if(val) display.textContent = val; }
+            const billingText = document.querySelector('[data-price-billing]');
+            if(billingText){
+              if(period === 'monthly') billingText.textContent = '$999 billed every month';
+              else if(period === 'quarterly') billingText.textContent = '$2,697 billed every 3 months';
+              else billingText.textContent = '$9,588 billed every year';
+            }
+          });
+          const defaultBtn = pricingToggle.querySelector('[data-billing-button="quarterly"]');
+          if(defaultBtn) defaultBtn.classList.add('bg-white','text-[#1A1A1A]');
+        }
+
+        // Simple expand buttons (testimonials)
+        document.querySelectorAll('[data-expand-button]').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const p = btn.previousElementSibling;
+            if(!p) return;
+            const expanded = btn.getAttribute('data-expanded') === 'true';
+            if(expanded){ btn.textContent = 'Read more'; btn.setAttribute('data-expanded','false'); }
+            else { btn.textContent = 'Show less'; btn.setAttribute('data-expanded','true'); }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

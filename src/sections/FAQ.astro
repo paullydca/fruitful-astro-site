@@ -1,0 +1,82 @@
+---
+---
+
+<section class="relative w-full bg-white py-24 lg:py-32 overflow-hidden" id="faq">
+  <img src="/images/faq-illustration-1.jpg" alt="" class="absolute top-24 left-4 w-[120px] sm:w-[150px] opacity-40 hidden lg:block" loading="lazy"/>
+  <img src="/images/faq-illustration-2.jpg" alt="" class="absolute top-32 right-4 w-[100px] sm:w-[120px] opacity-40 hidden lg:block" loading="lazy"/>
+  <img src="/images/faq-illustration-3.jpg" alt="" class="absolute bottom-32 left-8 w-[110px] sm:w-[140px] opacity-40 hidden lg:block" loading="lazy"/>
+
+  <div class="max-w-[800px] mx-auto px-6 relative z-10">
+    <h2 class="font-display font-bold text-[32px] sm:text-[44px] text-[#1A1A1A] leading-[1.15] tracking-[-0.02em] text-center mb-16 opacity-0" data-animate="fade-up">Frequently Asked Questions</h2>
+
+    <div class="bg-white rounded-2xl shadow-card overflow-hidden">
+      <!-- Render all FAQ items -->
+      {
+        [
+          {
+            question: 'What is SEO Juice?',
+            answer: 'SEO Juice is a Halifax-based SEO agency specializing in helping local Nova Scotia businesses rank higher on Google. We provide: (1) A dedicated SEO strategist who knows the Halifax market, (2) Full-service SEO including technical audits, on-page optimization, local SEO, content strategy, and link building, (3) Transparent monthly reporting so you always know your rankings, traffic, and ROI, and (4) Proven results: most clients see page-one rankings within 90 days.',
+          },
+          {
+            question: 'Why does my Halifax business need SEO?',
+            answer: "93% of online experiences begin with a search engine, and 46% of all Google searches have local intent. If your Halifax business isn't ranking on page one, you're invisible to thousands of potential customers every month. SEO is the most cost-effective long-term marketing channel. Unlike paid ads, the traffic and rankings you earn keep delivering results even after you stop spending. Halifax is a growing market; now is the time to own your Google presence before your competitors do.",
+          },
+          {
+            question: 'How long does SEO take to work in Halifax?',
+            answer: "SEO is a long-term strategy, but results come faster than most people expect. Most of our Halifax clients see meaningful ranking improvements within 60–90 days. Highly competitive keywords may take 4–6 months to reach page one. We prioritize quick wins (low-competition, high-intent Halifax keywords) early in every engagement so you're generating leads while we build long-term authority.",
+          },
+          {
+            question: 'What does the SEO process look like?',
+            answer: "We start with a comprehensive SEO audit of your website and competitive landscape in Halifax. Then we build a custom keyword strategy targeting the searches your customers actually use. From there, we execute on-page SEO, technical fixes, local SEO (Google Business Profile, citations), and a content and link building plan. Every month you receive a transparent report showing ranking changes, organic traffic, and leads, along with a strategy update from your dedicated Halifax SEO strategist.",
+          },
+          {
+            question: 'Do you specialize in local SEO for Halifax?',
+            answer: "Yes, local SEO is our core focus. Halifax is our home market and we know it deeply. We optimize your Google Business Profile, build consistent NAP citations across Halifax and Nova Scotia directories, create locally-relevant content targeting searches like 'SEO Halifax', 'Halifax [your service]', and 'near me' queries. We also help clients rank in the Google Maps 3-Pack, which drives a huge share of local business leads.",
+          },
+          {
+            question: "What's included in the free SEO audit?",
+            answer: "Your free Halifax SEO audit covers: (1) Technical health: site speed, mobile-friendliness, crawlability, and indexation issues, (2) On-page SEO: title tags, meta descriptions, header structure, and keyword targeting, (3) Local SEO: Google Business Profile status, local citations, and map rankings, (4) Backlink profile: authority assessment and toxic link identification, (5) Competitor gap analysis: what your Halifax competitors are ranking for that you're not. The audit takes 3–5 business days and is completely free with no obligation.",
+          },
+          {
+            question: 'How much does Halifax SEO cost?',
+            answer: "Our Halifax SEO services start at $799/month on an annual plan, $899/month quarterly, or $999/month month-to-month. All plans include a dedicated SEO strategist, full-service delivery, and monthly transparent reporting. SEO typically delivers 3-5x ROI for Halifax businesses within 12 months, making it one of the best-value marketing investments available. There are no setup fees and your free audit is always included.",
+          },
+          {
+            question: 'How does SEO Juice compare to other Halifax digital marketing agencies?',
+            answer: "Most Halifax marketing agencies offer SEO as an add-on to a broader suite of services, which means you get generalists, not specialists. SEO Juice is 100% focused on SEO. You get a dedicated Halifax SEO strategist (not a junior account manager), proven local SEO expertise, and complete transparency into what we're doing and why. We don't lock you into long contracts you can't exit, and we don't hide behind vanity metrics. Every report shows real keyword rankings, traffic, and leads.",
+          },
+          {
+            question: 'Do you work with businesses outside Halifax?',
+            answer: "Yes. While Halifax and the HRM (Halifax Regional Municipality) are our primary focus, we work with businesses across Nova Scotia including Dartmouth, Bedford, Sackville, Truro, and beyond. We also work with Nova Scotia-based businesses that want to rank nationally across Canada. If you're not sure if we're the right fit geographically, just reach out. We're happy to chat.",
+          },
+          {
+            question: 'Can I cancel my SEO service?',
+            answer: "Month-to-month clients can cancel with 30 days' notice. Quarterly and annual plans include a proportional refund policy for unused months. We're confident in the results we deliver, but we never want clients to feel trapped. Our retention rate speaks for itself: over 90% of SEO Juice clients renew year over year.",
+          },
+          {
+            question: 'What industries do you serve in Halifax?',
+            answer: "We work with Halifax businesses across a wide range of industries: restaurants & hospitality, legal & professional services, healthcare & dental, home services & trades, real estate, retail & eCommerce, financial services, and more. SEO Juice has driven results for Halifax businesses in nearly every category, and our strategies adapt to your industry's specific competitive landscape and search behaviour.",
+          },
+          {
+            question: 'How do I get started?',
+            answer: "Getting started is simple: click 'Get Your Free SEO Audit' above, fill in a short form about your business and goals, and we'll deliver a comprehensive Halifax SEO audit within 3–5 business days. There's no obligation and no sales pressure. Most clients who receive the audit choose to move forward because the opportunity is clear.",
+          },
+          {
+            question: 'How can I reach the SEO Juice team?',
+            answer: 'Our Halifax team is available Monday through Friday, 9 AM – 6 PM Atlantic Time. You can reach us by email at hello@seojuice.ca, by phone at (902) 555-0100, or through the contact form on this site. Existing clients also have direct access to their dedicated SEO strategist via our client portal.',
+          },
+        ].map((item, index)=> (
+          <div className={index < 11 ? 'border-b border-borderLight' : ''}>
+            <button data-accordion-trigger class="w-full flex items-center justify-between px-7 py-5 text-left group">
+              <span class="text-base font-medium text-[#1A1A1A] pr-4">{item.question}</span>
+              <svg class="w-5 h-5 text-body" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div data-accordion-content class="overflow-hidden max-h-0 transition-all duration-300 px-7">
+              <p class="py-4 text-base text-body">{item.answer}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComparePage from '../../components/ComparePage.astro';
+
+const data = {
+  seoTitle: 'SEO Juice vs In-House SEO Halifax | Which Is Better for Your Business?',
+  seoDescription:
+    "Thinking of hiring an in-house SEO in Halifax? Compare the real costs, results, and timelines of in-house SEO vs SEO Juice, Halifax's dedicated SEO agency.",
+  badge: 'SEO Juice vs In-House SEO Halifax',
+  headline: 'In-House SEO vs. Hiring a Halifax SEO Agency: Which Actually Moves the Needle?',
+  sub: "Hiring an in-house SEO sounds appealing. Then you see the true cost, ramp time, and skill gap. Here's the honest comparison Halifax businesses need to make.",
+  verdictHeadline: 'For most Halifax SMBs, an agency delivers 3× more output at half the cost of one full-time hire.',
+  verdictBody:
+    'A mid-level in-house SEO in Halifax costs $60,000–$80,000 per year in salary alone, before benefits, training, tools ($500–$2,000/mo), and management overhead. They cover one discipline. SEO Juice gives you a full team of specialists (technical SEO, content, link building, reporting) from day one, at a fraction of the price, with no hiring risk.',
+  usLabel: 'SEO Juice',
+  themLabel: 'In-House SEO',
+  tableRows: [
+    { feature: 'Monthly cost', us: 'From $799/mo', them: '$5,500–$7,500/mo (salary + tools)' },
+    { feature: 'Time to first results', us: '30–90 days', them: '3–6 months (ramp time)' },
+    { feature: 'Technical SEO expertise', us: 'yes', them: 'Depends on hire' },
+    { feature: 'Content strategy & writing', us: 'yes', them: 'Often outsourced separately' },
+    { feature: 'Link building', us: 'yes', them: 'Rarely included' },
+    { feature: 'Local SEO Halifax focus', us: 'yes', them: 'Varies by candidate' },
+    { feature: 'Access to enterprise-grade tools', us: 'yes', them: 'no' },
+    { feature: 'Dedicated reporting & analytics', us: 'yes', them: 'no' },
+    { feature: 'Scales with your business', us: 'yes', them: 'no' },
+    { feature: 'No HR risk if results stall', us: 'yes', them: 'no' },
+    { feature: 'Halifax market knowledge', us: 'yes', them: 'Depends on hire' },
+  ],
+  sections: [
+    {
+      heading: 'The True Cost of an In-House SEO in Halifax',
+      paragraphs: [
+        'Halifax hiring data from 2024 puts a mid-level SEO specialist at $58,000–$75,000 in base salary. Add employer-side CPP, EI, vacation pay, and benefits, and the fully loaded cost lands at $72,000–$95,000 per year, roughly $6,000–$8,000 per month.',
+        'That figure does not include the SEO tool stack your hire will need: Ahrefs or Semrush ($200–$500/mo), Screaming Frog ($250/yr), Google Search Console integrations, rank tracking, and reporting dashboards. Enterprise-grade access easily adds $800–$2,000/mo on top of salary.',
+        'SEO Juice starts at $799/mo and brings a full team, tool stack included. For most Halifax businesses turning over under $5M per year, the math is clear.',
+      ],
+      callout: { stat: '$95k', label: 'Avg. fully loaded cost of one Halifax SEO hire per year' },
+    },
+    {
+      heading: 'The Ramp-Up Problem: Why In-House SEO Takes So Long',
+      paragraphs: [
+        'Even an experienced SEO hire needs 60–90 days to learn your business, audit your existing site, map your competitive landscape, and build their first content calendar. You will see your first ranking movement at month 4 or 5 at the earliest, if the hire is strong.',
+        'SEO Juice has already ranked Halifax businesses in hospitality, legal, trades, health, and eCommerce. We know which keywords convert in Halifax, which directories matter locally, and which technical issues show up again and again on Nova Scotia business sites. Day one, we hit the ground running.',
+        'We also eliminate the single-point-of-failure risk. When your in-house SEO goes on leave, gets sick, or resigns, your SEO program stops. With SEO Juice, your campaign continues without interruption.',
+      ],
+      bullets: [
+        'Onboarding audit delivered within 7 business days of signing',
+        'First quick-win optimizations live within 14 days',
+        'Dedicated Halifax strategist assigned to your account',
+        'Monthly reporting with rank movement, traffic, and lead data',
+      ],
+    },
+    {
+      heading: 'Where In-House SEO Makes Sense (and Where It Does Not)',
+      paragraphs: [
+        'In-house SEO makes sense for enterprise-scale companies with a $500k+ annual digital marketing budget, a team of content writers already in place, and a dedicated technical development squad. At that scale, the alignment and speed gains of an embedded SEO can outweigh the cost.',
+        'For Halifax SMBs (the restaurants, law firms, contractors, healthcare clinics, and retail shops that make up most of the Halifax business community), the economics of in-house SEO simply do not stack up. The salary alone buys a full-service agency relationship with room to spare.',
+        'The right question is not "in-house or agency?" but "what level of SEO investment gets us to the first page of Google for \'[service] Halifax\' and drives leads?" SEO Juice is built to answer that question for businesses of every size.',
+      ],
+    },
+  ],
+  bestForUsLabel: 'SEO Juice',
+  bestForThemLabel: 'In-House SEO',
+  bestForUs: [
+    'Halifax SMBs that need results without a $70k+ annual commitment',
+    'Business owners who want transparent, monthly reporting without managing an employee',
+    'Companies that need full-service SEO: technical, content, and links, not just one slice',
+    'Growing businesses that need their SEO to scale up or down quickly',
+    'Anyone who has been burned by slow results or vague agency promises before',
+  ],
+  bestForThem: [
+    'Enterprise businesses with $500k+ digital budgets and an existing content team',
+    'Companies where SEO is deeply embedded in product (large SaaS, publishers)',
+    'Organisations that require full-time, on-site strategic alignment',
+  ],
+  faqItems: [
+    {
+      question: 'What does an in-house SEO manager actually cost in Halifax?',
+      answer:
+        'Based on 2024 Halifax job postings, a mid-level SEO specialist commands $55,000–$75,000 in base salary. Adding employer taxes, benefits, and the required tool stack (Ahrefs, Semrush, rank tracker, reporting), the fully loaded annual cost is typically $75,000–$95,000, or $6,250–$7,900 per month.',
+    },
+    {
+      question: 'Can an agency really replace a dedicated in-house hire?',
+      answer:
+        'For most Halifax businesses, yes. SEO Juice assigns a dedicated strategist to every account who knows your industry, your competitors, and the Halifax market. You get the continuity of a relationship without the HR cost or risk. The main thing you lose is someone who is physically in your office, which rarely changes SEO outcomes.',
+    },
+    {
+      question: 'How quickly does SEO Juice show results versus an in-house hire?',
+      answer:
+        'SEO Juice delivers an initial audit within 7 business days and first optimisations within 14 days. An in-house hire typically needs 60–90 days before any meaningful work is published. Clients typically see their first ranking improvements within 30–60 days with SEO Juice.',
+    },
+    {
+      question: 'What if I already have an in-house person and want to supplement them?',
+      answer:
+        'We work well as a fractional extension of internal teams. Many Halifax businesses use us for technical SEO and link building while their in-house person handles content and social. We can scope an engagement around exactly what your team needs most.',
+    },
+    {
+      question: 'Is there a contract lock-in with SEO Juice?',
+      answer:
+        'We ask for a 6-month initial commitment because SEO takes time to compound, and month-to-month churn hurts results for everyone. After six months, clients continue on a rolling monthly basis. There is no long-term lock-in beyond the initial period.',
+    },
+  ],
+  ctaHeadline: 'Get the output of a full SEO team for less than one salary.',
+  ctaSub: 'Book your free Halifax SEO audit. No obligation, delivered in 3 business days.',
+};
+---
+
+<Layout
+  title={data.seoTitle}
+  description={data.seoDescription}
+>
+  <main>
+    <ComparePage data={data} />
+  </main>
+</Layout>
