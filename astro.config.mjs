@@ -4,7 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://seojuice.ca',
+  site: 'https://paullydca.github.io',
+  base: '/fruitful-astro-site',
   integrations: [
     mdx(),
     tailwind({ applyBaseStyles: false }),
