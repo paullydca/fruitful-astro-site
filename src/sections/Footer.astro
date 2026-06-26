@@ -1,23 +1,24 @@
 ---
+import { withBase } from '../lib/withBase';
+
 const exploreLinks = [
-  { label: 'SEO Services', href: '#how-it-works' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'SEO Roadmap', href: '#seo-roadmap' },
-  { label: 'Results & ROI', href: '#results' },
+  { label: 'SEO Services', href: '/#how-it-works' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'SEO Roadmap', href: '/#seo-roadmap' },
+  { label: 'Results & ROI', href: '/#results' },
+  { label: 'Free SEO Audit', href: '/free-seo-audit' },
 ];
 
 const compareLinks = [
-  { label: 'vs In-House SEO', href: '#' },
-  { label: 'vs Halifax Agencies', href: '#' },
-  { label: 'vs DIY SEO', href: '#' },
+  { label: 'vs In-House SEO', href: '/compare/in-house-seo' },
+  { label: 'vs Halifax Agencies', href: '/compare/other-agencies' },
+  { label: 'vs DIY SEO', href: '/compare/diy-seo' },
 ];
 
 const companyLinks = [
-  { label: 'Blog', href: '#' },
-  { label: 'Case Studies', href: '#' },
-  { label: 'Our Team', href: '#team' },
-  { label: 'Careers', href: '#' },
-  { label: 'Legal', href: '#' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Client Results', href: '/#testimonials' },
+  { label: 'Our Team', href: '/#team' },
 ];
 
 const socialLinks = [
@@ -35,7 +36,7 @@ const socialLinks = [
         <ul class="space-y-2.5">
           {exploreLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+              <a href={withBase(link.href)} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -46,7 +47,7 @@ const socialLinks = [
         <ul class="space-y-2.5">
           {compareLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+              <a href={withBase(link.href)} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -57,7 +58,7 @@ const socialLinks = [
         <ul class="space-y-2.5">
           {companyLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
+              <a href={withBase(link.href)} class="text-sm text-white/70 hover:text-white transition-colors">{link.label}</a>
             </li>
           ))}
         </ul>
