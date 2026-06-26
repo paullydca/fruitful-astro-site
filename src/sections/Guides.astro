@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/withBase';
 ---
 
 <section id="team" class="w-full bg-white py-24 lg:py-32">
@@ -11,14 +12,14 @@
         Every client gets a dedicated SEO strategist, not a junior account manager, who knows Halifax, knows your industry, and drives real results.
       </p>
       <div class="mt-8 flex justify-center">
-        <a href={`${import.meta.env.BASE_URL}free-seo-audit`} class="bg-primary hover:bg-primary-hover text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-button">
+        <a href={withBase('/free-seo-audit')} class="bg-primary hover:bg-primary-hover text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-button">
           Get your strategist
         </a>
       </div>
     </div>
 
     <div class="mt-16 rounded-2xl overflow-hidden shadow-card">
-      <img src={`${import.meta.env.BASE_URL}images/guide-section-bg.jpg`} alt="SEO Juice Halifax team" class="w-full h-[250px] sm:h-[300px] object-cover" loading="lazy" />
+      <img src={withBase('/images/guide-section-bg.jpg')} alt="SEO Juice Halifax team" class="w-full h-[250px] sm:h-[300px] object-cover" loading="lazy" />
     </div>
 
     <div class="mt-12 relative" data-carousel-container>
@@ -38,7 +39,7 @@
       >
         <div class="flex-shrink-0 w-[200px] text-center group">
           <div class="relative mx-auto w-[160px] h-[160px] rounded-full overflow-hidden border-borderLight group-hover:border-borderGray border-[3px] transition-colors">
-            <img src={`${import.meta.env.BASE_URL}images/guide-1.jpg`} alt="Naima Bush" class="w-full h-full object-cover" loading="lazy" />
+            <img src={withBase('/images/guide-1.jpg')} alt="Naima Bush" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <h4 class="mt-4 font-semibold text-base text-[#1A1A1A]">Naima Bush</h4>
           <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -50,7 +51,7 @@
 
         <div class="flex-shrink-0 w-[200px] text-center group">
           <div class="relative mx-auto w-[160px] h-[160px] rounded-full overflow-hidden border-borderLight group-hover:border-borderGray border-[3px] transition-colors">
-            <img src={`${import.meta.env.BASE_URL}images/guide-2.jpg`} alt="Matt Becker" class="w-full h-full object-cover" loading="lazy" />
+            <img src={withBase('/images/guide-2.jpg')} alt="Matt Becker" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <h4 class="mt-4 font-semibold text-base text-[#1A1A1A]">Matt Becker</h4>
           <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -62,7 +63,7 @@
 
         <div class="flex-shrink-0 w-[200px] text-center group">
           <div class="relative mx-auto w-[160px] h-[160px] rounded-full overflow-hidden border-primary border-[3px] transition-colors">
-            <img src={`${import.meta.env.BASE_URL}images/guide-3.jpg`} alt="Bri Sullivan" class="w-full h-full object-cover" loading="lazy" />
+            <img src={withBase('/images/guide-3.jpg')} alt="Bri Sullivan" class="w-full h-full object-cover" loading="lazy" />
             <div class="absolute top-2 right-2 bg-primary text-white text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-0.5">
               ✓
             </div>
@@ -78,7 +79,7 @@
 
         <div class="flex-shrink-0 w-[200px] text-center group">
           <div class="relative mx-auto w-[160px] h-[160px] rounded-full overflow-hidden border-borderLight group-hover:border-borderGray border-[3px] transition-colors">
-            <img src={`${import.meta.env.BASE_URL}images/guide-4.jpg`} alt="Colin Bishop" class="w-full h-full object-cover" loading="lazy" />
+            <img src={withBase('/images/guide-4.jpg')} alt="Colin Bishop" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <h4 class="mt-4 font-semibold text-base text-[#1A1A1A]">Colin Bishop</h4>
           <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -90,7 +91,7 @@
 
         <div class="flex-shrink-0 w-[200px] text-center group">
           <div class="relative mx-auto w-[160px] h-[160px] rounded-full overflow-hidden border-borderLight group-hover:border-borderGray border-[3px] transition-colors">
-            <img src={`${import.meta.env.BASE_URL}images/guide-5.jpg`} alt="Sarah Chen" class="w-full h-full object-cover" loading="lazy" />
+            <img src={withBase('/images/guide-5.jpg')} alt="Sarah Chen" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <h4 class="mt-4 font-semibold text-base text-[#1A1A1A]">Sarah Chen</h4>
           <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -102,7 +103,7 @@
 
         <div class="flex-shrink-0 w-[200px] text-center group">
           <div class="relative mx-auto w-[160px] h-[160px] rounded-full overflow-hidden border-borderLight group-hover:border-borderGray border-[3px] transition-colors">
-            <img src={`${import.meta.env.BASE_URL}images/guide-6.jpg`} alt="David Park" class="w-full h-full object-cover" loading="lazy" />
+            <img src={withBase('/images/guide-6.jpg')} alt="David Park" class="w-full h-full object-cover" loading="lazy" />
           </div>
           <h4 class="mt-4 font-semibold text-base text-[#1A1A1A]">David Park</h4>
           <div class="mt-2 flex flex-wrap justify-center gap-1.5">

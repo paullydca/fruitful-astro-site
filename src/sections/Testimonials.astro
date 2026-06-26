@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/withBase';
 ---
 
 <section id="testimonials" class="relative w-full py-24 lg:py-32 overflow-hidden">
@@ -18,7 +19,7 @@
 
       <h2 class="mt-6 font-display font-bold text-[40px] sm:text-[56px] text-white leading-[1.1]">Real Halifax businesses. Real rankings.</h2>
       <p class="mt-4 text-lg text-white/90 max-w-[500px]">Halifax business owners trust SEO Juice to get them found, drive traffic, and grow revenue.</p>
-      <a href={`${import.meta.env.BASE_URL}free-seo-audit`} class="inline-block mt-6 bg-white hover:bg-white/90 text-primary font-semibold text-sm px-6 py-3 rounded-lg">Get your free SEO audit</a>
+      <a href={withBase('/free-seo-audit')} class="inline-block mt-6 bg-white hover:bg-white/90 text-primary font-semibold text-sm px-6 py-3 rounded-lg">Get your free SEO audit</a>
     </div>
 
     <div class="flex flex-col gap-6 mt-12">
