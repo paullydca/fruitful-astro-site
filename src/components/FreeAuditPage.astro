@@ -1,5 +1,10 @@
 ---
 import { withBase } from '../lib/withBase';
+
+// Formsubmit.co — free, no account/API key. Submissions are emailed to
+// this address. First submission triggers a one-time confirmation email
+// you must click to activate the form.
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/paullydca@gmail.com';
 ---
 
 <section class="relative w-full pt-32 pb-24 overflow-hidden" style="background: #022A1C;">
@@ -203,7 +208,13 @@ import { withBase } from '../lib/withBase';
           </p>
         </div>
 
-        <form data-audit-form class="space-y-4">
+        <form data-audit-form data-endpoint={FORM_ENDPOINT} class="space-y-4">
+          <!-- Formsubmit.co options -->
+          <input type="hidden" name="_subject" value="New free SEO audit request — seojuice.ca" />
+          <input type="hidden" name="_template" value="table" />
+          <!-- Honeypot: real users leave this empty; bots fill it and get rejected -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
           <div class="mb-7">
             <h3 class="font-display font-bold text-[22px] text-[#1A1A1A]">Claim your free Halifax SEO audit</h3>
             <p class="mt-1.5 text-sm text-body">Takes 60 seconds. Delivered in 3 business days. No obligation.</p>
@@ -248,6 +259,10 @@ import { withBase } from '../lib/withBase';
               </select>
             </label>
           </div>
+
+          <p data-audit-error class="hidden text-sm text-center" style="color:#DC2626;">
+            Something went wrong. Please try again, or email <a href="mailto:hello@seojuice.ca" class="underline">hello@seojuice.ca</a>.
+          </p>
 
           <button type="submit" class="w-full mt-2 bg-forest-dark hover:bg-[#054D33] text-white font-semibold text-base py-4 rounded-xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2.5">
             Send my free audit request
@@ -370,22 +385,39 @@ import { withBase } from '../lib/withBase';
     if (!form || !success) return;
 
     const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const errorEl = form.querySelector('[data-audit-error]') as HTMLElement | null;
+    const endpoint = form.getAttribute('data-endpoint') || '';
     const defaultLabel = button ? button.innerHTML : '';
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      errorEl?.classList.add('hidden');
       if (button) {
         button.disabled = true;
         button.innerHTML = 'Sending…';
       }
-      setTimeout(() => {
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        const ok = data.success === true || data.success === 'true';
+        if (res.ok && ok) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+          return;
+        }
+        throw new Error(data.message || 'Submission failed');
+      } catch (err) {
+        errorEl?.classList.remove('hidden');
         if (button) {
           button.disabled = false;
           button.innerHTML = defaultLabel;
         }
-      }, 1200);
+      }
     });
   })();
 </script>
