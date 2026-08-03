@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const data = {
+  serviceName: 'Technical SEO',
+  seoDescription:
+    "Technical SEO services for Halifax businesses. We fix site speed, Core Web Vitals, crawlability, and structured data so Google can rank your site. Free audit included.",
+  badge: 'Technical SEO Halifax',
+  headline: 'Technical SEO Services in Halifax',
+  sub: "A fast, crawlable, technically sound website is the foundation of every ranking. We find and fix what's holding your Halifax site back on Google.",
+  introKicker: 'Why technical SEO',
+  introHeadline: "Google won't rank a site it can't crawl, load, or trust.",
+  introParagraphs: [
+    "You can have the best content and the strongest local presence in Halifax, but if your site is slow, hard to crawl, or riddled with technical errors, Google will hold your rankings back. Technical SEO is the foundation everything else is built on.",
+    "Most Halifax business websites have technical issues the owner never sees: pages that fail Core Web Vitals, broken links, missing structured data, poor mobile performance, or crawl problems that keep pages out of the index entirely. These are invisible on the surface but very visible to Google.",
+    "SEO Juice audits, prioritises, and fixes these issues so your site earns the rankings your content and reputation deserve — and so every dollar you spend on content and links actually pays off.",
+  ],
+  includedHeadline: 'A technically sound site, top to bottom',
+  included: [
+    { title: 'Full technical audit', description: 'A deep crawl of your site to surface every issue affecting rankings — prioritised by impact, not just a raw list.' },
+    { title: 'Core Web Vitals & speed', description: 'We diagnose and fix slow load times, layout shift, and interactivity issues to bring your site into the "Good" range.' },
+    { title: 'Mobile optimisation', description: 'Most Halifax searches are on phones. We make sure your site is fast and flawless on mobile, where Google ranks you first.' },
+    { title: 'Crawlability & indexation', description: 'We fix robots.txt, sitemaps, redirects, and crawl issues so Google can find and index all your important pages.' },
+    { title: 'Structured data & schema', description: 'LocalBusiness, FAQ, and other schema markup that helps Google understand your site and win rich results.' },
+    { title: 'Site architecture & internal links', description: 'A clean structure and internal linking that flows authority to the pages that need to rank.' },
+    { title: 'Error & redirect cleanup', description: 'We eliminate broken links, 404s, redirect chains, and duplicate content that dilute your rankings.' },
+    { title: 'HTTPS & security', description: 'Proper SSL and security headers, because Google penalises insecure sites and users trust them less.' },
+  ],
+  processHeadline: 'How we fix your technical SEO',
+  process: [
+    { title: 'Free technical audit', description: "We crawl your entire site and benchmark it against Google's technical standards and your Halifax competitors, then hand you a prioritised list of what to fix." },
+    { title: 'Prioritise by impact', description: 'Not every issue matters equally. We sequence the work so the highest-impact fixes — the ones actually suppressing rankings — happen first.' },
+    { title: 'Implement the fixes', description: 'We handle the technical work: speed, mobile, crawlability, schema, and error cleanup, coordinating with your developer or platform as needed.' },
+    { title: 'Verify & monitor', description: 'We confirm fixes are indexed and working in Search Console, and set up monitoring so new issues get caught before they cost you rankings.' },
+    { title: 'Report', description: 'Clear monthly reporting on your technical health, Core Web Vitals, indexation, and the ranking improvements that follow.' },
+  ],
+  related: [
+    { label: 'How to rank on Google in Halifax', href: '/blog/how-to-rank-on-google-in-halifax/' },
+    { label: 'The Halifax SEO checklist', href: '/blog/halifax-seo-checklist/' },
+    { label: 'How much does SEO cost in Halifax?', href: '/blog/how-much-does-seo-cost-in-halifax/' },
+    { label: 'How long does SEO take to work?', href: '/blog/how-long-does-seo-take-in-halifax/' },
+  ],
+  faqs: [
+    { q: 'What is technical SEO?', a: 'Technical SEO is the work of making your website fast, crawlable, secure, and structured so search engines can access, understand, and rank it. It covers site speed, Core Web Vitals, mobile performance, crawlability, indexation, structured data, and site architecture.' },
+    { q: 'How do I know if my site has technical SEO problems?', a: 'Most sites do, and they are rarely visible on the surface. Common signs are slow load times, pages missing from Google, poor mobile performance, or rankings that stall despite good content. Our free audit surfaces every technical issue and prioritises them by impact.' },
+    { q: 'Will I need to rebuild my website?', a: 'Almost never. The large majority of technical SEO issues are fixed on your existing site — speed, schema, crawl settings, redirects, and structure. We only recommend bigger changes when the platform itself is the bottleneck, and we tell you plainly if that is the case.' },
+    { q: 'Does technical SEO alone get me to page one?', a: 'Technical SEO is the foundation, not the whole house. It removes the barriers holding your rankings back so your content and links can work. For most Halifax businesses it pairs with local SEO and content to reach and hold page one.' },
+  ],
+  ctaHeadline: 'Find out what technical issues are costing you rankings.',
+  ctaSub: 'Free technical SEO audit in 3 business days. Every issue holding your site back, prioritised.',
+};
+---
+
+<Layout
+  title="Technical SEO Halifax | Site Speed, Crawlability & Schema | SEO Juice"
+  description={data.seoDescription}
+>
+  <main>
+    <ServicePage data={data} />
+  </main>
+</Layout>

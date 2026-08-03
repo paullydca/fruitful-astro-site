@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const data = {
+  serviceName: 'SEO Content & Link Building',
+  seoDescription:
+    "SEO content and link building for Halifax businesses. We create content that ranks and earn the local backlinks that build authority and push you to page one. Free audit.",
+  badge: 'Content & Link Building Halifax',
+  headline: 'SEO Content & Link Building in Halifax',
+  sub: "Content that answers what your customers search for, and the local authority to make it rank. This is how Halifax businesses reach and hold page one.",
+  introKicker: 'Why content & links',
+  introHeadline: 'Rankings are earned with great content and the authority to back it.',
+  introParagraphs: [
+    "Once your site is technically sound and your local presence is set, two things separate page one from page three: content that matches what people search for, and backlinks that tell Google your site is credible. These are the compounding investments that build lasting rankings.",
+    "Most Halifax businesses stall here. The easy on-page basics get done, then the hard, ongoing work — publishing content that targets real buyer intent, and earning links from credible local sources — never happens. That is exactly the 20% of effort that most businesses skip and the 80% of results it drives.",
+    "SEO Juice builds and executes the content strategy and does the manual outreach that earns real Halifax links, so your rankings and organic traffic compound month after month.",
+  ],
+  includedHeadline: 'Content that ranks, authority that lasts',
+  included: [
+    { title: 'Content strategy', description: 'A keyword-driven plan mapping the exact searches your Halifax customers use to the pages and posts that will capture them.' },
+    { title: 'Service & location pages', description: 'Conversion-focused pages for each service and community you serve — the money pages that turn rankings into leads.' },
+    { title: 'Blog & guides', description: 'Long-form, high-intent content that captures customers researching before they buy and builds topical authority.' },
+    { title: 'Keyword & gap research', description: 'We find the commercial-intent terms your competitors rank for that you do not, and prioritise the winnable ones.' },
+    { title: 'Local link building', description: 'Manual outreach to Halifax media, associations, directories, and partners for links that actually move rankings.' },
+    { title: 'Digital PR & linkable assets', description: 'Local guides, data, and stories that journalists and other Halifax sites want to reference and link to.' },
+    { title: 'On-page optimisation', description: 'Titles, headings, internal links, and structure so every piece of content is built to rank from day one.' },
+    { title: 'Content reporting', description: 'Transparent monthly reporting on rankings, traffic, and the links earned — tied back to leads, not vanity metrics.' },
+  ],
+  processHeadline: 'How we build your content & authority',
+  process: [
+    { title: 'Free audit & content gap analysis', description: 'We map the keywords your Halifax competitors rank for that you do not, and identify the highest-intent, most winnable content opportunities.' },
+    { title: 'Build the strategy', description: 'We turn that research into a prioritised roadmap of pages and posts, each mapped to a specific search and stage of the buyer journey.' },
+    { title: 'Create & optimise', description: 'We write and publish content built to rank and convert — service pages, location pages, and guides — fully optimised on-page.' },
+    { title: 'Earn the links', description: 'We run manual outreach to credible Halifax and Nova Scotia sources, building the backlink authority that lifts your whole domain.' },
+    { title: 'Measure & compound', description: 'Monthly reporting on rankings, traffic, and links — and a strategy that compounds as your authority grows.' },
+  ],
+  related: [
+    { label: 'How to find the best SEO keywords for Halifax businesses', href: '/blog/seo-keywords-for-halifax-businesses/' },
+    { label: 'How to rank on Google in Halifax', href: '/blog/how-to-rank-on-google-in-halifax/' },
+    { label: 'Halifax SEO vs Google Ads', href: '/blog/halifax-seo-vs-google-ads/' },
+    { label: 'The Halifax SEO checklist', href: '/blog/halifax-seo-checklist/' },
+  ],
+  faqs: [
+    { q: 'What kind of content do you create?', a: 'Whatever ranks and converts for your business: service pages, location pages for the communities you serve, and blog guides that answer high-intent questions your Halifax customers search before buying. Everything is keyword-driven and written to rank, not just to fill a page.' },
+    { q: 'Is link building safe? I have heard it can cause penalties.', a: 'Cheap, automated link building absolutely can cause penalties. We only build links the safe way — manual outreach to real, credible Halifax and Nova Scotia websites, directories, and partners. These are the links Google rewards, not the spammy ones it punishes.' },
+    { q: 'How many links or how much content do I need?', a: 'It depends on your competition. We benchmark against the Halifax businesses currently outranking you and scope a realistic plan to close the gap. Quality and relevance matter far more than volume, especially in a market this size.' },
+    { q: 'How long until content and links move my rankings?', a: 'Content can start ranking for long-tail terms within weeks, while links and topical authority compound over months. Expect meaningful movement on competitive terms from month 4 to 6, with results that keep building over 6 to 12 months.' },
+  ],
+  ctaHeadline: 'Build the content and authority to own page one in Halifax.',
+  ctaSub: 'Free SEO audit with a content and link gap analysis, delivered in 3 business days.',
+};
+---
+
+<Layout
+  title="SEO Content & Link Building Halifax | SEO Juice"
+  description={data.seoDescription}
+>
+  <main>
+    <ServicePage data={data} />
+  </main>
+</Layout>

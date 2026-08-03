@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicePage from '../components/ServicePage.astro';
+
+const data = {
+  serviceName: 'Local SEO',
+  seoDescription:
+    "Local SEO services for Halifax businesses. We get you into the Google Map Pack and local search results so nearby customers find and choose you. Free audit included.",
+  badge: 'Local SEO Halifax',
+  headline: 'Local SEO Services in Halifax',
+  sub: "Get found in the Google Map Pack and local search when Halifax customers look for what you offer — and turn those searches into calls, bookings, and walk-ins.",
+  introKicker: 'Why local SEO',
+  introHeadline: 'Your next customer is searching for you right now. Are you showing up?',
+  introParagraphs: [
+    "Most buying decisions in Halifax start with a local search — \"near me\", a service plus a neighbourhood, or a business name someone half-remembers. Google answers those searches with the local Map Pack: the three businesses shown above everything else. Those three capture the majority of the clicks and calls.",
+    "Local SEO is how you earn one of those spots. It's a different discipline from generic SEO — it's driven by your Google Business Profile, reviews, local citations, and location-specific content. In a market the size of Halifax, where most niches have only 10–20 real competitors, a focused local SEO campaign is genuinely winnable within months.",
+    "SEO Juice does this every day for Halifax businesses. We handle the whole system so you show up when it matters and can get back to running your business.",
+  ],
+  includedHeadline: 'Everything your business needs to win local search',
+  included: [
+    { title: 'Google Business Profile optimisation', description: 'Complete setup, the right primary category, photos, posts, and Q&A — the single biggest lever for Map Pack rankings.' },
+    { title: 'Map Pack ranking strategy', description: 'A targeted plan to move you into the top three local results for the searches your customers actually use.' },
+    { title: 'Reviews strategy', description: 'A simple system to generate a steady stream of recent Google reviews and respond to every one.' },
+    { title: 'Citations & NAP consistency', description: 'Consistent Name, Address, and Phone across every Halifax directory that Google checks for trust.' },
+    { title: 'Location & service pages', description: 'Dedicated pages for the HRM communities and services you serve, each with unique, locally relevant content.' },
+    { title: 'Local link building', description: 'Real links from Halifax media, associations, and partners that build the authority Google rewards.' },
+    { title: 'Local content', description: 'Blog and page content targeting the high-intent questions Halifax customers ask before they buy.' },
+    { title: 'Rank tracking & reporting', description: 'Transparent monthly reporting on your local rankings, traffic, and the calls and leads they drive.' },
+  ],
+  processHeadline: 'A clear, proven process',
+  process: [
+    { title: 'Free audit & local competitive analysis', description: "We assess your Google Business Profile, site, reviews, and citations against the Halifax competitors currently outranking you, and map the gap to page one." },
+    { title: 'Profile & foundations', description: 'We optimise your Google Business Profile, fix citation and NAP issues, and clean up any technical problems holding your site back.' },
+    { title: 'Content & authority', description: 'We build the location and service pages, publish local content, and earn citations and links that grow your local prominence.' },
+    { title: 'Reviews & momentum', description: 'We put a review-generation system in place and keep your profile active with posts and photos to compound your Map Pack presence.' },
+    { title: 'Report & refine', description: 'Every month you get clear reporting on rankings, traffic, and leads — and we refine the strategy based on what is working.' },
+  ],
+  related: [
+    { label: 'Halifax Google Business Profile: the local SEO guide', href: '/blog/halifax-google-business-profile-guide/' },
+    { label: 'How to rank on Google in Halifax', href: '/blog/how-to-rank-on-google-in-halifax/' },
+    { label: 'The Halifax SEO checklist', href: '/blog/halifax-seo-checklist/' },
+    { label: 'How much does SEO cost in Halifax?', href: '/blog/how-much-does-seo-cost-in-halifax/' },
+  ],
+  faqs: [
+    { q: 'What is local SEO and how is it different from regular SEO?', a: 'Local SEO focuses on ranking for location-based searches and in the Google Map Pack, driven by your Google Business Profile, reviews, and citations. Regular SEO focuses on organic website rankings more broadly. For a Halifax business serving local customers, local SEO usually drives the most leads.' },
+    { q: 'How long until I see results from local SEO in Halifax?', a: 'Local SEO often produces some of the fastest wins in SEO. Google Business Profile improvements and reviews can shift the Map Pack within weeks, with steady growth over the following months. Competitive terms compound over 6 to 12 months.' },
+    { q: 'Do I need a physical storefront for local SEO?', a: 'No. Service-area businesses that travel to customers rank in local search too — we set up your profile to reflect the areas you serve across the Halifax Regional Municipality rather than a storefront address.' },
+    { q: 'How much does local SEO cost in Halifax?', a: 'Local SEO for a single-location Halifax business typically starts around $800 to $1,200 per month. We scope every engagement to your market and competition, and start with a free audit so you know exactly what it will take before committing.' },
+  ],
+  ctaHeadline: "Let's get your business into the Halifax Map Pack.",
+  ctaSub: 'Free local SEO audit in 3 business days. See exactly where you stand and what it will take to rank.',
+};
+---
+
+<Layout
+  title="Local SEO Halifax | Map Pack & Local Search Services | SEO Juice"
+  description={data.seoDescription}
+>
+  <main>
+    <ServicePage data={data} />
+  </main>
+</Layout>

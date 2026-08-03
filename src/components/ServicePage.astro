@@ -1,0 +1,184 @@
+---
+import { withBase } from '../lib/withBase';
+
+const { data } = Astro.props;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": data.serviceName,
+  "serviceType": data.serviceName,
+  "provider": {
+    "@type": "Organization",
+    "name": "SEO Juice",
+    "url": "https://seojuice.ca",
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Halifax" },
+    { "@type": "City", "name": "Dartmouth" },
+    { "@type": "AdministrativeArea", "name": "Nova Scotia" },
+  ],
+  "description": data.seoDescription,
+};
+
+const faqs = data.faqs ?? [];
+const faqSchema = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a },
+      })),
+    }
+  : null;
+
+const cardTints = ['bg-primary-light', 'bg-lavender-light', 'bg-skyBlue-light', 'bg-terracotta-light'];
+const iconTints = ['text-primary', 'text-lavender', 'text-skyBlue', 'text-terracotta'];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+<!-- Hero -->
+<section class="relative w-full pt-32 pb-24 overflow-hidden" style="background: #022A1C;">
+  <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[360px] rounded-full pointer-events-none" style="background: radial-gradient(ellipse, rgba(21,122,78,0.35) 0%, transparent 70%);"></div>
+
+  <div class="relative z-10 max-w-[860px] mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-7">
+      <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+      <span class="text-sm text-white/85 font-medium">{data.badge}</span>
+    </div>
+
+    <h1 class="font-display font-bold text-white text-[36px] sm:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.03em]" style="text-shadow: 0 2px 30px rgba(0,0,0,0.4);">
+      {data.headline}
+    </h1>
+
+    <p class="mt-6 text-lg sm:text-xl text-white/75 leading-relaxed max-w-[640px] mx-auto">
+      {data.sub}
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href={withBase('/free-seo-audit')} class="bg-primary hover:bg-primary-hover text-white font-semibold text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_24px_rgba(21,122,78,0.5)]">
+        Get your free SEO audit
+      </a>
+      <a href="#whats-included" class="text-white/60 hover:text-white/90 text-sm font-medium transition-colors flex items-center gap-1.5">
+        See what's included
+        <span class="text-white">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Intro / outcome -->
+<section class="w-full bg-white py-20 lg:py-24">
+  <div class="max-w-[820px] mx-auto px-6">
+    <span class="text-sm font-semibold text-primary tracking-wider uppercase">{data.introKicker}</span>
+    <h2 class="mt-3 font-display font-bold text-[28px] sm:text-[40px] text-[#1A1A1A] leading-[1.15] tracking-[-0.02em]">{data.introHeadline}</h2>
+    <div class="mt-6 space-y-4">
+      {data.introParagraphs.map((p) => (
+        <p class="text-base sm:text-lg text-body leading-relaxed">{p}</p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- What's included -->
+<section id="whats-included" class="w-full py-20 lg:py-24" style="background: #F0F7F3;">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="text-sm font-semibold text-primary tracking-wider uppercase">What's included</span>
+      <h2 class="mt-3 font-display font-bold text-[28px] sm:text-[40px] text-[#1A1A1A] leading-[1.15] tracking-[-0.02em]">{data.includedHeadline}</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {data.included.map((item, i) => (
+        <div class={`${cardTints[i % 4]} rounded-2xl p-7 hover:shadow-card transition-shadow`}>
+          <div class="w-11 h-11 rounded-xl bg-white shadow-xs flex items-center justify-center mb-5">
+            <span class={`${iconTints[i % 4]} font-bold`}>✓</span>
+          </div>
+          <h3 class="font-display font-bold text-[17px] text-[#1A1A1A] mb-2">{item.title}</h3>
+          <p class="text-sm text-body leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="w-full bg-white py-20 lg:py-24">
+  <div class="max-w-[900px] mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="text-sm font-semibold text-primary tracking-wider uppercase">How it works</span>
+      <h2 class="mt-3 font-display font-bold text-[28px] sm:text-[40px] text-[#1A1A1A] leading-[1.15] tracking-[-0.02em]">{data.processHeadline}</h2>
+    </div>
+    <div class="space-y-1">
+      {data.process.map((step, i) => (
+        <div class="flex gap-5">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+              <span class="font-display font-bold text-sm text-primary">{String(i + 1).padStart(2, '0')}</span>
+            </div>
+            {i < data.process.length - 1 && <div class="w-0.5 flex-1 bg-borderLight mt-1"></div>}
+          </div>
+          <div class="pb-8">
+            <h3 class="font-semibold text-lg text-[#1A1A1A]">{step.title}</h3>
+            <p class="mt-1.5 text-base text-body leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Related resources -->
+{data.related && data.related.length > 0 && (
+  <section class="w-full py-16 lg:py-20" style="background: #F0F7F3;">
+    <div class="max-w-[900px] mx-auto px-6">
+      <h2 class="font-display font-bold text-[24px] sm:text-[30px] text-[#1A1A1A] tracking-[-0.02em] mb-8">Learn more from our Halifax SEO guides</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {data.related.map((link) => (
+          <a href={withBase(link.href)} class="group bg-white rounded-xl border border-borderLight p-5 hover:shadow-card transition-shadow flex items-center justify-between gap-4">
+            <span class="text-sm font-semibold text-[#1A1A1A] group-hover:text-primary transition-colors">{link.label}</span>
+            <span class="text-primary flex-shrink-0">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- FAQ -->
+{faqs.length > 0 && (
+  <section class="w-full bg-white py-20 lg:py-24">
+    <div class="max-w-[780px] mx-auto px-6">
+      <h2 class="font-display font-bold text-[26px] sm:text-[36px] text-[#1A1A1A] tracking-[-0.02em] text-center mb-10">Frequently asked questions</h2>
+      <div class="divide-y divide-borderLight border-t border-b border-borderLight">
+        {faqs.map((f) => (
+          <details class="group py-5">
+            <summary class="flex items-center justify-between cursor-pointer list-none text-base font-semibold text-[#1A1A1A]">
+              {f.q}
+              <span class="ml-4 text-primary transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-body leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- CTA -->
+<section class="w-full py-20" style="background: #022A1C;">
+  <div class="max-w-[680px] mx-auto px-6 text-center">
+    <div class="flex justify-center gap-1 mb-5">★★★★★</div>
+    <h2 class="font-display font-bold text-[26px] sm:text-[36px] text-white leading-[1.15] tracking-[-0.02em]">{data.ctaHeadline}</h2>
+    <p class="mt-4 text-base max-w-[440px] mx-auto leading-relaxed text-white/75">{data.ctaSub}</p>
+    <a href={withBase('/free-seo-audit')} class="inline-flex items-center gap-2 mt-8 bg-primary hover:bg-primary-hover text-white font-semibold text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_24px_rgba(21,122,78,0.5)]">
+      Get my free Halifax SEO audit
+      <span class="text-white text-lg">→</span>
+    </a>
+    <p class="mt-4 text-xs text-white/40">Free, no obligation, delivered in 3 business days.</p>
+  </div>
+</section>
