@@ -35,6 +35,19 @@ const articleSchema = {
     "url": "https://seojuice.ca"
   }
 };
+
+const faqs = post.data.faqs ?? [];
+const faqSchema = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a },
+      })),
+    }
+  : null;
 ---
 
 <Layout
@@ -42,6 +55,7 @@ const articleSchema = {
   description={post.data.description}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
   <main class="min-h-screen bg-white">
     <!-- Hero -->
@@ -92,6 +106,25 @@ const articleSchema = {
         </article>
       </div>
     </section>
+
+    {faqs.length > 0 && (
+      <section class="w-full pb-8">
+        <div class="max-w-[780px] mx-auto px-6">
+          <h2 class="font-display font-bold text-[26px] sm:text-[32px] text-[#1A1A1A] tracking-[-0.02em] mb-8">Frequently asked questions</h2>
+          <div class="divide-y divide-borderLight border-t border-b border-borderLight">
+            {faqs.map((f) => (
+              <details class="group py-5">
+                <summary class="flex items-center justify-between cursor-pointer list-none text-base font-semibold text-[#1A1A1A]">
+                  {f.q}
+                  <span class="ml-4 text-primary transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p class="mt-3 text-body leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- CTA footer -->
     <section class="w-full bg-primary-light py-20 mt-8">
