@@ -10,6 +10,9 @@ const blog = defineCollection({
     category: z.string().default('SEO Tips'),
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    imageWidth: z.number().int().positive().optional(),
+    imageHeight: z.number().int().positive().optional(),
     readingTime: z.number().optional(),
     faqs: z
       .array(z.object({ q: z.string(), a: z.string() }))

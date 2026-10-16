@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Image optimisation for SEO</title>
+  <desc id="desc">A four-step workflow: size the image, compress it, upload it, and test the published page.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#F0F7F3"/><stop offset="1" stop-color="#DCEEE3"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dy="8" stdDeviation="12" flood-color="#022A1C" flood-opacity=".08"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="56" y="64" font-size="24" font-weight="700" fill="#157A4E">SEO JUICE</text>
+    <text x="56" y="142" font-size="49" font-weight="700" fill="#022A1C">Image optimisation for SEO</text>
+    <text x="56" y="194" font-size="26" fill="#444444">Size first. Compress before upload. Test the page.</text>
+    <g fill="#FFFFFF" filter="url(#shadow)">
+      <rect x="56" y="250" width="236" height="252" rx="24"/>
+      <rect x="336" y="250" width="236" height="252" rx="24"/>
+      <rect x="616" y="250" width="236" height="252" rx="24"/>
+      <rect x="896" y="250" width="248" height="252" rx="24"/>
+    </g>
+    <g stroke="#157A4E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="125" y="290" width="98" height="83" rx="10" fill="#E8F5EE"/>
+      <path d="m138 354 24-26 19 16 15-12 16 22"/><circle cx="196" cy="308" r="6"/>
+      <path d="M111 306v-29h29m70 110h27v-28"/>
+      <rect x="417" y="292" width="74" height="82" rx="10" fill="#E8F5EE"/>
+      <path d="M432 306h44m-44 15h44m-44 15h44m-37 16h30M395 313v39m-8-8 8 8 8-8m103-31v39m-8-8 8 8 8-8"/>
+      <path d="M705 361h65a21 21 0 0 0 0-42h-5a29 29 0 0 0-56-3 23 23 0 0 0-4 45Z" fill="#E8F5EE"/>
+      <path d="M735 376v-42m-12 12 12-12 12 12"/>
+      <rect x="971" y="288" width="92" height="70" rx="10" fill="#E8F5EE"/>
+      <path d="m983 340 19-21 17 10 22-25"/>
+      <circle cx="1054" cy="357" r="22" fill="#FFFFFF"/><path d="m1070 374 16 16m-41-34 7 7 12-14"/>
+      <path d="M307 372h14m-6-6 6 6-6 6M587 372h14m-6-6 6 6-6 6M867 372h14m-6-6 6 6-6 6" opacity=".65"/>
+    </g>
+    <g font-size="25" font-weight="700" fill="#022A1C" text-anchor="middle">
+      <text x="174" y="431">SIZE</text><text x="454" y="431">COMPRESS</text><text x="734" y="431">UPLOAD</text><text x="1020" y="431">TEST</text>
+    </g>
+    <g font-size="18" fill="#555555" text-anchor="middle">
+      <text x="174" y="465">Right dimensions</text><text x="454" y="465">Fewer bytes</text><text x="734" y="465">Website-ready files</text><text x="1020" y="465">Check the live page</text>
+    </g>
+    <text x="56" y="576" font-size="22" fill="#157A4E">Practical steps for better loading and layout stability</text>
+  </g>
+</svg>

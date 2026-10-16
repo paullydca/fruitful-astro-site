@@ -54,9 +54,12 @@ function formatDate(date: Date) {
                   <div class="h-48 overflow-hidden bg-sage-light">
                     <img
                       src={post.data.image}
-                      alt={post.data.title}
+                      alt={post.data.imageAlt ?? post.data.title}
+                      width={post.data.imageWidth}
+                      height={post.data.imageHeight}
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 )}

@@ -23,6 +23,7 @@ const articleSchema = {
   "@type": "Article",
   "headline": post.data.title,
   "description": post.data.description,
+  ...(post.data.image && { "image": new URL(post.data.image, Astro.site ?? Astro.url).href }),
   "datePublished": post.data.pubDate.toISOString(),
   "author": {
     "@type": "Organization",
@@ -53,6 +54,7 @@ const faqSchema = faqs.length
 <Layout
   title={`${post.data.title} | SEO Juice Blog`}
   description={post.data.description}
+  ogImage={post.data.image}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
@@ -91,9 +93,13 @@ const faqSchema = faqs.length
       <div class="max-w-[780px] mx-auto px-6 -mt-px">
         <img
           src={post.data.image}
-          alt={post.data.title}
+          alt={post.data.imageAlt ?? post.data.title}
+          width={post.data.imageWidth}
+          height={post.data.imageHeight}
           class="w-full rounded-b-2xl object-cover max-h-[400px]"
           loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
       </div>
     )}
