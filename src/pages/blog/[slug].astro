@@ -93,6 +93,8 @@ const faqSchema = faqs.length
       <div class="max-w-[780px] mx-auto px-6 -mt-px">
         <img
           src={post.data.image}
+          srcset={post.data.imageSrcSet}
+          sizes="(min-width: 780px) 732px, calc(100vw - 48px)"
           alt={post.data.imageAlt ?? post.data.title}
           width={post.data.imageWidth}
           height={post.data.imageHeight}
