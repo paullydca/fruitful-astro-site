@@ -18,7 +18,7 @@ function formatDate(date: Date) {
 >
   <main class="min-h-screen bg-offWhite">
     <!-- Hero -->
-    <section class="relative w-full pt-32 pb-20" style="background: #022A1C;">
+    <section class="relative w-full overflow-hidden pt-32 pb-20" style="background: #022A1C;">
       <div
         class="absolute inset-0 opacity-[0.04]"
         style="background-image: linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 48px 48px;"
@@ -54,6 +54,8 @@ function formatDate(date: Date) {
                   <div class="h-48 overflow-hidden bg-sage-light">
                     <img
                       src={post.data.image}
+                      srcset={post.data.imageSrcSet}
+                      sizes="(min-width: 1200px) 363px, (min-width: 1024px) calc((100vw - 112px) / 3), (min-width: 768px) calc((100vw - 80px) / 2), calc(100vw - 48px)"
                       alt={post.data.imageAlt ?? post.data.title}
                       width={post.data.imageWidth}
                       height={post.data.imageHeight}
