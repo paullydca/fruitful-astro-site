@@ -52,7 +52,7 @@ const faqSchema = faqs.length
 ---
 
 <Layout
-  title={`${post.data.title} | SEO Juice Blog`}
+  title={`${post.data.seoTitle ?? post.data.title} | SEO Juice Blog`}
   description={post.data.description}
   ogImage={post.data.image}
 >
